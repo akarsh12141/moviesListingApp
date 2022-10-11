@@ -1,0 +1,61 @@
+
+<!-- <div class="largeDiv">
+<div id="mySidenav" class="sidenav">
+   <a href="javascript:void(0)" class="closebtn" ></a> 
+  <a href="#" >Movies</a>
+</div> -->
+
+<div *ngIf="!isMoviesPage">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Movies Name</th>
+        <th scope="col">Actor</th>
+        <th scope="col">Language</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Location</th>
+        <th scope="col">View Locations</th>
+        
+      </tr>
+    </thead>
+    <tbody  >
+      <tr *ngFor="let detail of details">
+        <td>{{detail?.name}}</td>
+        <td>{{detail?.actor}}</td>
+        <td>{{detail?.language}}</td>
+        <td>{{detail?.genre}}</td>
+        <td>{{detail?.locations}}</td>
+        <td>
+          <button type="button" (click)="viewMovies(detail.name)"  class="btn btn-primary">View seats</button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+
+  
+<div *ngIf="isMoviesPage">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Movies Name</th>
+        <th scope="col">Theatre name</th>
+        <th scope="col">Timings</th>
+        <th scope="col">Location</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody  >
+      <tr *ngFor="let  local of location">
+        <td>{{local?.name}}</td>
+        <td>{{local?.theatre}}</td>
+        <td>{{local?.timings}}</td>
+        <td>{{local?.location}}</td>
+        <td>{{local?.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
