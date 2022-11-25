@@ -1,19 +1,19 @@
 
-<!-- <div class="largeDiv">
+<div class="largeDiv">
 <div id="mySidenav" class="sidenav">
-   <a href="javascript:void(0)" class="closebtn" ></a> 
-  <a href="#" >Movies</a>
-</div> -->
+  <button  type="button" (click)="setFlag()"  class="btn btn-primary" >Movies</button>
+</div>
 
+<!-- Moves Page -->
 <div *ngIf="!isMoviesPage">
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Movies Name</th>
+        <th scope="col" (click)="sort(sortBy,'Name')">Movies Name</th>
         <th scope="col">Actor</th>
         <th scope="col">Language</th>
         <th scope="col">Genre</th>
-        <th scope="col">Location</th>
+        <th scope="col" (click)="sort(sortBy,'Location')" >Location {{sortBy}}</th>
         <th scope="col">View Locations</th>
         
       </tr>
@@ -34,7 +34,7 @@
   </table>
 </div>
 
-  
+<!-- Location Page -->
 <div *ngIf="isMoviesPage">
   <table class="table">
     <thead>

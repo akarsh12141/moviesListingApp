@@ -18,6 +18,14 @@ export class MoviesService {
     return this.http.get<Details[]>(`${this.apiServerUrl}/moviesDetails/allDetails`);
   }
 
+  public getDetailsLocationAsc(): Observable<Details[]> {
+    return this.http.get<Details[]>(`${this.apiServerUrl}/moviesDetails/allDetailsLocationAsc`);
+  }
+
+  public getDetailsSort(orderBy: string,column : string ): Observable<Details[]> {
+    return this.http.get<Details[]>(`${this.apiServerUrl}/moviesDetails/allDetailsSort/${orderBy}/${column}`);
+  }
+
   public addDeatils(details : Details): Observable<Details>{
     return this.http.post<Details>(`${this.apiServerUrl}/moviesDetails/addDetails`,details);
   }
@@ -29,5 +37,7 @@ export class MoviesService {
   public getLocationByName(name: string): Observable<Locations[]> {
     return this.http.get<Locations[]>(`${this.apiServerUrl}/moviesLocation/LoactionName/${name}`);
   }
+
+  
 
 }
